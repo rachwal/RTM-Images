@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{398EEBA5-B38E-4AA1-8B49-27C59373856A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RTM.Images</RootNamespace>
+    <AssemblyName>RTM.Images</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RTM.Images.Decoder.Bitmap\RTM.Images.Decoder.Bitmap.csproj">
+      <Project>{bf7002f3-ecba-435a-96d7-4637103ce529}</Project>
+      <Name>RTM.Images.Decoder.Bitmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTM.Images.Decoder.ImageSource\RTM.Images.Decoder.ImageSource.csproj">
+      <Project>{217315b5-7b0c-4771-9705-093ef7aaa7ce}</Project>
+      <Name>RTM.Images.Decoder.ImageSource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTM.Images.Decoder\RTM.Images.Decoder.csproj">
+      <Project>{c13baf70-a7f3-4cdf-a438-bdb4d713cd38}</Project>
+      <Name>RTM.Images.Decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTM.Images.Provider\RTM.Images.Provider.csproj">
+      <Project>{98908500-e932-47fe-8d8f-c40c127f182b}</Project>
+      <Name>RTM.Images.Provider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
