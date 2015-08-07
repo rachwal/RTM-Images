@@ -1,5 +1,5 @@
 // RTM.Images
-// RTM.CameraImages
+// RTM.Images.Factory
 // IImageFactory.cs
 // 
 // Created by Bartosz Rachwal. 
@@ -7,7 +7,7 @@
 
 using System.Drawing;
 
-namespace RTM.CameraImages
+namespace RTM.Images.Factory
 {
     public interface IImageFactory
     {

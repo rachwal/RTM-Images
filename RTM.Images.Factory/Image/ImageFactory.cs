@@ -1,5 +1,5 @@
 ﻿// RTM.Images
-// RTM.CameraImages
+// RTM.Images.Factory
 // ImageFactory.cs
 // 
 // Created by Bartosz Rachwal. 
@@ -10,7 +10,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using RTM.Images.Decoder;
 
-namespace RTM.CameraImages
+namespace RTM.Images.Factory
 {
     public class ImageFactory : IImageFactory
     {
@@ -41,13 +41,13 @@ namespace RTM.CameraImages
             Marshal.Copy(bitmapData.Scan0, outputPixels, 0, length);
             bitmap.UnlockBits(bitmapData);
 
-            var bitsPerPixel = (ushort) ((int) bitmap.PixelFormat >> 8 & 0xFF);
+            var bitsPerPixel = ((int) bitmap.PixelFormat >> 8 & 0xFF);
 
             cameraImage.Bpp = bitsPerPixel;
             cameraImage.Width = bitmap.Width;
             cameraImage.Height = bitmap.Height;
             cameraImage.Pixels = outputPixels;
-
+            cameraImage.Format = bitmap.PixelFormat;
             return cameraImage;
         }
     }

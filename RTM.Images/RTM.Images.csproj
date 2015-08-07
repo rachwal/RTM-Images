@@ -34,10 +34,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RTM.CameraImages\RTM.CameraImages.csproj">
-      <Project>{05270e5c-f4d1-4684-9793-002b2fc7a6bf}</Project>
-      <Name>RTM.CameraImages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RTM.Images.Decoder.Bitmap\RTM.Images.Decoder.Bitmap.csproj">
       <Project>{bf7002f3-ecba-435a-96d7-4637103ce529}</Project>
       <Name>RTM.Images.Decoder.Bitmap</Name>
@@ -49,6 +45,10 @@
     <ProjectReference Include="..\RTM.Images.Decoder\RTM.Images.Decoder.csproj">
       <Project>{c13baf70-a7f3-4cdf-a438-bdb4d713cd38}</Project>
       <Name>RTM.Images.Decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTM.Images.Factory\RTM.Images.Factory.csproj">
+      <Project>{05270e5c-f4d1-4684-9793-002b2fc7a6bf}</Project>
+      <Name>RTM.Images.Factory</Name>
     </ProjectReference>
     <ProjectReference Include="..\RTM.Images.Provider\RTM.Images.Provider.csproj">
       <Project>{98908500-e932-47fe-8d8f-c40c127f182b}</Project>

@@ -7,8 +7,8 @@
     <ProjectGuid>{05270E5C-F4D1-4684-9793-002B2FC7A6BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RTM.CameraImages</RootNamespace>
-    <AssemblyName>RTM.CameraImages</AssemblyName>
+    <RootNamespace>RTM.Images.Factory</RootNamespace>
+    <AssemblyName>RTM.Images.Factory</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,10 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ImageFactory.cs" />
-    <Compile Include="IImageFactory.cs" />
-    <Compile Include="Image.cs" />
+    <Compile Include="Bitmap\BitmapFactory.cs" />
+    <Compile Include="BitmapImage\BitmapSourceFactory.cs" />
+    <Compile Include="Bitmap\IBitmapFactory.cs" />
+    <Compile Include="BitmapImage\IBitmapSourceFactory.cs" />
+    <Compile Include="Converter\PixelFormatConverter.cs" />
+    <Compile Include="Image\ImageFactory.cs" />
+    <Compile Include="Image\IImageFactory.cs" />
+    <Compile Include="Image\Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RTM.Images.Decoder.Bitmap\RTM.Images.Decoder.Bitmap.csproj">
@@ -45,9 +56,6 @@
       <Project>{c13baf70-a7f3-4cdf-a438-bdb4d713cd38}</Project>
       <Name>RTM.Images.Decoder</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
