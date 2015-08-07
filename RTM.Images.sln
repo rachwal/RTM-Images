@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTM.Images.Decoder", "RTM.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTM.Images", "RTM.Images\RTM.Images.csproj", "{398EEBA5-B38E-4AA1-8B49-27C59373856A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTM.CameraImages", "RTM.CameraImages\RTM.CameraImages.csproj", "{05270E5C-F4D1-4684-9793-002B2FC7A6BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{398EEBA5-B38E-4AA1-8B49-27C59373856A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{398EEBA5-B38E-4AA1-8B49-27C59373856A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{398EEBA5-B38E-4AA1-8B49-27C59373856A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05270E5C-F4D1-4684-9793-002B2FC7A6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05270E5C-F4D1-4684-9793-002B2FC7A6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05270E5C-F4D1-4684-9793-002B2FC7A6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05270E5C-F4D1-4684-9793-002B2FC7A6BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

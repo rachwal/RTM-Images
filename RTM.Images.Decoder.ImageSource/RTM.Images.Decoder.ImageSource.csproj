@@ -39,7 +39,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RTM.Images.Decoder\RTM.Images.Decoder.csproj">
       <Project>{c13baf70-a7f3-4cdf-a438-bdb4d713cd38}</Project>
-      <Name>RESTComponent.Images.Decoder</Name>
+      <Name>RTM.Images.Decoder</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

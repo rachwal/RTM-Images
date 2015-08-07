@@ -34,6 +34,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RTM.CameraImages\RTM.CameraImages.csproj">
+      <Project>{05270e5c-f4d1-4684-9793-002b2fc7a6bf}</Project>
+      <Name>RTM.CameraImages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RTM.Images.Decoder.Bitmap\RTM.Images.Decoder.Bitmap.csproj">
       <Project>{bf7002f3-ecba-435a-96d7-4637103ce529}</Project>
       <Name>RTM.Images.Decoder.Bitmap</Name>
