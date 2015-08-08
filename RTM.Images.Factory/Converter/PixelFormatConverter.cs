@@ -5,11 +5,20 @@
 // Created by Bartosz Rachwal. 
 // Copyright (c) 2015 The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved. 
 
+using System.Drawing.Imaging;
+
 namespace RTM.Images.Factory.Converter
 {
-    public class PixelFormatConverter
+    public interface IPixelFormatConverter
     {
-        public static System.Drawing.Imaging.PixelFormat Convert(System.Windows.Media.PixelFormat pixelFormat)
+        System.Drawing.Imaging.PixelFormat Convert(System.Windows.Media.PixelFormat pixelFormat);
+        System.Drawing.Imaging.PixelFormat Convert(string pixelFormat);
+        System.Windows.Media.PixelFormat Convert(System.Drawing.Imaging.PixelFormat pixelFormat);
+    }
+
+    public class PixelFormatConverter : IPixelFormatConverter
+    {
+        public System.Drawing.Imaging.PixelFormat Convert(System.Windows.Media.PixelFormat pixelFormat)
         {
             if (pixelFormat == System.Windows.Media.PixelFormats.Indexed1)
             {
@@ -78,7 +87,12 @@ namespace RTM.Images.Factory.Converter
             return System.Drawing.Imaging.PixelFormat.DontCare;
         }
 
-        public static System.Windows.Media.PixelFormat Convert(System.Drawing.Imaging.PixelFormat pixelFormat)
+        public PixelFormat Convert(string pixelFormat)
+        {
+            return System.Drawing.Imaging.PixelFormat.DontCare;
+        }
+
+        public System.Windows.Media.PixelFormat Convert(System.Drawing.Imaging.PixelFormat pixelFormat)
         {
             if (pixelFormat == System.Drawing.Imaging.PixelFormat.Format1bppIndexed)
             {

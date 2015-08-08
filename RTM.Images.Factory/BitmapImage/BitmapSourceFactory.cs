@@ -13,6 +13,8 @@ namespace RTM.Images.Factory
 {
     public class BitmapSourceFactory : IBitmapSourceFactory
     {
+        private readonly IPixelFormatConverter converter = new PixelFormatConverter();
+
         public BitmapSource Create(Image image)
         {
             try
@@ -20,7 +22,7 @@ namespace RTM.Images.Factory
                 var bitsPerPixel = ((int) image.Format >> 8 & 0xFF);
                 var stride = bitsPerPixel*image.Width;
                 var bitmap = BitmapSource.Create(image.Width, image.Height, 96.0, 96.0,
-                    PixelFormatConverter.Convert(image.Format), null, image.Pixels, stride);
+                    converter.Convert(image.Format), null, image.Pixels, stride);
                 return bitmap;
             }
             catch (Exception)
