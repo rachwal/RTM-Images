@@ -50,10 +50,6 @@
       <Project>{05270e5c-f4d1-4684-9793-002b2fc7a6bf}</Project>
       <Name>RTM.Images.Factory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RTM.Images.Provider\RTM.Images.Provider.csproj">
-      <Project>{98908500-e932-47fe-8d8f-c40c127f182b}</Project>
-      <Name>RTM.Images.Provider</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
