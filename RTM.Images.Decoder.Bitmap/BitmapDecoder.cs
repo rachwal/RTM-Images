@@ -27,7 +27,7 @@ namespace RTM.Images.Decoder.Bitmap
             }
             catch (Exception)
             {
-                return null;
+                return new System.Drawing.Bitmap(1, 1);
             }
         }
     }

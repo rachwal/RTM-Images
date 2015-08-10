@@ -21,7 +21,7 @@ namespace RTM.Images.Decoder.ImageSource
             }
             catch (Exception)
             {
-                return null;
+                return new BitmapImage();
             }
         }
 

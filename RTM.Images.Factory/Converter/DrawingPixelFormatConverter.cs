@@ -14,7 +14,14 @@ namespace RTM.Images.Factory.Converter
     {
         public PixelFormat Convert(string format)
         {
-            return (PixelFormat) Enum.Parse(typeof (PixelFormat), format, true);
+            try
+            {
+                return (PixelFormat)Enum.Parse(typeof(PixelFormat), format, true);
+            }
+            catch (Exception)
+            {
+                return PixelFormat.Undefined;
+            }
         }
     }
 }
