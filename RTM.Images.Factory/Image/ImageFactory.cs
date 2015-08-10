@@ -39,9 +39,9 @@ namespace RTM.Images.Factory
             try
             {
                 var bitmap = new WriteableBitmap(bitmapSource);
-                var bytesPerPixel = (bitmap.Format.BitsPerPixel + 7) / 8;
-                var stride = 4 * ((bitmapSource.PixelWidth * bytesPerPixel + 3) / 4);
-                var length = stride * bitmapSource.PixelHeight;
+                var bytesPerPixel = (bitmap.Format.BitsPerPixel + 7)/8;
+                var stride = 4*((bitmapSource.PixelWidth*bytesPerPixel + 3)/4);
+                var length = stride*bitmapSource.PixelHeight;
                 var pixels = new byte[length];
                 bitmap.CopyPixels(pixels, stride, 0);
                 bitmap.Freeze();
@@ -51,7 +51,6 @@ namespace RTM.Images.Factory
                 cameraImage.Width = bitmapSource.PixelWidth;
                 cameraImage.Height = bitmapSource.PixelHeight;
                 cameraImage.Format = bitmapSource.Format.ToString();
-
             }
             catch (Exception)
             {

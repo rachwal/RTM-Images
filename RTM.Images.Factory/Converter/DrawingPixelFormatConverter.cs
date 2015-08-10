@@ -16,7 +16,7 @@ namespace RTM.Images.Factory.Converter
         {
             try
             {
-                return (PixelFormat)Enum.Parse(typeof(PixelFormat), format, true);
+                return (PixelFormat) Enum.Parse(typeof (PixelFormat), format, true);
             }
             catch (Exception)
             {
