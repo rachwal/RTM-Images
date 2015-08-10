@@ -6,6 +6,7 @@
 // Copyright (c) 2015 The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved. 
 
 using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace RTM.Images.Factory
 {
@@ -13,5 +14,6 @@ namespace RTM.Images.Factory
     {
         Image Create(string value);
         Image Create(Bitmap bitmap);
+        Image Create(BitmapSource bitmapSource);
     }
 }

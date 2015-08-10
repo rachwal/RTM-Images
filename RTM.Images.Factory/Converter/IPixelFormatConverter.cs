@@ -5,14 +5,10 @@
 // Created by Bartosz Rachwal. 
 // Copyright (c) 2015 The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved. 
 
-using System.Drawing.Imaging;
-
 namespace RTM.Images.Factory.Converter
 {
-    public interface IPixelFormatConverter
+    public interface IPixelFormatConverter<out T>
     {
-        PixelFormat Convert(System.Windows.Media.PixelFormat pixelFormat);
-        PixelFormat Convert(string pixelFormat);
-        System.Windows.Media.PixelFormat Convert(PixelFormat pixelFormat);
+        T Convert(string format);
     }
 }
