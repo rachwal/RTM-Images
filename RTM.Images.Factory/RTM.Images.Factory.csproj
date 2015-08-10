@@ -35,6 +35,7 @@
     <Compile Include="BitmapImage\BitmapSourceFactory.cs" />
     <Compile Include="Bitmap\IBitmapFactory.cs" />
     <Compile Include="BitmapImage\IBitmapSourceFactory.cs" />
+    <Compile Include="Converter\IPixelFormatConverter.cs" />
     <Compile Include="Converter\PixelFormatConverter.cs" />
     <Compile Include="Image\ImageFactory.cs" />
     <Compile Include="Image\IImageFactory.cs" />
