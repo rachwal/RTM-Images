@@ -19,9 +19,9 @@ namespace RTM.Images.Factory
 
         public Bitmap Create(Image image)
         {
+            var pixelFormat = converter.Convert(image.Format);
             try
             {
-                var pixelFormat = converter.Convert(image.Format);
                 var bitmap = new Bitmap(image.Width, image.Height, pixelFormat);
                 var rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
                 var bitmapData = bitmap.LockBits(rect, ImageLockMode.WriteOnly, bitmap.PixelFormat);

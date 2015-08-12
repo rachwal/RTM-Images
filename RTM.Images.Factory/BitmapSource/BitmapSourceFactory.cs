@@ -15,16 +15,20 @@ namespace RTM.Images.Factory
 {
     public class BitmapSourceFactory : IBitmapSourceFactory
     {
-        private readonly IPixelFormatConverter<PixelFormat> converter = new MediaPixelFormatConverter();
+        private readonly IPixelFormatConverter<PixelFormat?> converter = new MediaPixelFormatConverter();
 
         public BitmapSource Create(Image image)
         {
+            var pixelFormat = converter.Convert(image.Format);
+            if (pixelFormat == null)
+            {
+                return new BitmapImage();
+            }
             try
             {
-                var pixelFormat = converter.Convert(image.Format);
-                var bytesPerPixel = (pixelFormat.BitsPerPixel + 7)/8;
+                var bytesPerPixel = (pixelFormat.Value.BitsPerPixel + 7)/8;
                 var stride = 4*((image.Width*bytesPerPixel + 3)/4);
-                var writeableBitmap = new WriteableBitmap(image.Width, image.Height, 96.0, 96.0, pixelFormat, null);
+                var writeableBitmap = new WriteableBitmap(image.Width, image.Height, 96.0, 96.0, pixelFormat.Value, null);
                 writeableBitmap.WritePixels(new Int32Rect(0, 0, image.Width, image.Height), image.Pixels, stride, 0);
                 writeableBitmap.Freeze();
                 return writeableBitmap;

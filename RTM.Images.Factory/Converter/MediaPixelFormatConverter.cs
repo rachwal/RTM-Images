@@ -10,9 +10,9 @@ using System.Windows.Media;
 
 namespace RTM.Images.Factory.Converter
 {
-    public class MediaPixelFormatConverter : IPixelFormatConverter<PixelFormat>
+    public class MediaPixelFormatConverter : IPixelFormatConverter<PixelFormat?>
     {
-        public PixelFormat Convert(string format)
+        public PixelFormat? Convert(string format)
         {
             if (string.IsNullOrEmpty(format))
             {
@@ -103,7 +103,7 @@ namespace RTM.Images.Factory.Converter
                     return PixelFormats.Cmyk32;
 
                 default:
-                    return PixelFormats.Default;
+                    return null;
             }
         }
     }

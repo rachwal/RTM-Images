@@ -32,12 +32,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bitmap\BitmapFactory.cs" />
-    <Compile Include="BitmapImage\BitmapSourceFactory.cs" />
+    <Compile Include="BitmapSource\BitmapSourceFactory.cs" />
     <Compile Include="Bitmap\IBitmapFactory.cs" />
-    <Compile Include="BitmapImage\IBitmapSourceFactory.cs" />
+    <Compile Include="BitmapSource\IBitmapSourceFactory.cs" />
     <Compile Include="Converter\DrawingPixelFormatConverter.cs" />
     <Compile Include="Converter\IPixelFormatConverter.cs" />
     <Compile Include="Converter\MediaPixelFormatConverter.cs" />
+    <Compile Include="Image\IImageConverter.cs" />
+    <Compile Include="Image\ImageConverter.cs" />
     <Compile Include="Image\ImageFactory.cs" />
     <Compile Include="Image\IImageFactory.cs" />
     <Compile Include="Image\Image.cs" />
