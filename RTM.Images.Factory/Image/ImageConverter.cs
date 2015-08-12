@@ -7,12 +7,13 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using RTM.Images.Factory.Converter;
+using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace RTM.Images.Factory
 {
@@ -28,12 +29,13 @@ namespace RTM.Images.Factory
 
         public Bitmap ToBitmap(Image image)
         {
-            var pixelFormat = drawingConverter.Convert(image.Format);
+            var preprocessed = Preprocess(image);
+            var pixelFormat = drawingConverter.Convert(preprocessed.Format);
             if (pixelFormat != PixelFormat.Undefined)
             {
-                return bitmapFactory.Create(image);
+                return bitmapFactory.Create(preprocessed);
             }
-            var bitmapSource = bitmapSourceFactory.Create(image);
+            var bitmapSource = bitmapSourceFactory.Create(preprocessed);
             return Convert(bitmapSource);
         }
 
@@ -57,13 +59,44 @@ namespace RTM.Images.Factory
 
         public BitmapSource ToBitmapSource(Image image)
         {
-            var pixelFormat = mediaConverter.Convert(image.Format);
+            var preprocessed = Preprocess(image);
+            var pixelFormat = mediaConverter.Convert(preprocessed.Format);
             if (pixelFormat != null)
             {
-                return bitmapSourceFactory.Create(image);
+                return bitmapSourceFactory.Create(preprocessed);
             }
-            var bitmap = bitmapFactory.Create(image);
+            var bitmap = bitmapFactory.Create(preprocessed);
             return Convert(bitmap);
+        }
+
+        private Image Preprocess(Image image)
+        {
+            return !string.IsNullOrEmpty(image.Format) ? image : TryGuessPixelFormat(image);
+        }
+
+        private Image TryGuessPixelFormat(Image image)
+        {
+            var ratio = image.Pixels.Length/(image.Width*image.Height);
+
+            switch (ratio)
+            {
+                case 1:
+                    image.Format = PixelFormats.Gray8.ToString();
+                    break;
+                case 2:
+                    image.Format = PixelFormats.Gray16.ToString();
+                    break;
+                case 3:
+                    image.Format = PixelFormats.Rgb24.ToString();
+                    break;
+                case 4:
+                    image.Format = PixelFormat.Format32bppRgb.ToString();
+                    break;
+                case 6:
+                    image.Format = PixelFormats.Rgb48.ToString();
+                    break;
+            }
+            return image;
         }
 
         private BitmapSource Convert(Bitmap bitmap)
