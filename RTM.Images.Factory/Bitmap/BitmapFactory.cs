@@ -28,10 +28,12 @@ namespace RTM.Images.Factory
                 var length = image.Pixels.Length;
                 Marshal.Copy(image.Pixels, 0, bitmapData.Scan0, length);
                 bitmap.UnlockBits(bitmapData);
+                image.Pixels = new byte[1];
                 return bitmap;
             }
             catch (Exception)
             {
+                image.Pixels = new byte[1];
                 return new Bitmap(1, 1);
             }
         }

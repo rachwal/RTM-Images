@@ -33,9 +33,7 @@ namespace RTM.Images.Decoder.ImageSource
             {
                 bitmapImage.BeginInit();
                 bitmapImage.StreamSource = stream;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
-                bitmapImage.Freeze();
                 return bitmapImage;
             }
         }

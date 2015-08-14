@@ -37,12 +37,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RTM.Images.Decoder\RTM.Images.Decoder.csproj">
-      <Project>{c13baf70-a7f3-4cdf-a438-bdb4d713cd38}</Project>
-      <Name>RTM.Images.Decoder</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="WindowsBase" />

@@ -99,18 +99,21 @@ namespace RTM.Images.Factory
             return image;
         }
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern bool DeleteObject(IntPtr hObject);
+
         private BitmapSource Convert(Bitmap bitmap)
         {
+            var hBitmap = bitmap.GetHbitmap();
+
             try
             {
-                var bitmapSource = Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero,
-                    Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-                bitmapSource.Freeze();
-                return bitmapSource;
+                return Imaging.CreateBitmapSourceFromHBitmap(hBitmap, IntPtr.Zero, Int32Rect.Empty,
+                    BitmapSizeOptions.FromEmptyOptions());
             }
-            catch (Exception)
+            finally
             {
-                return new BitmapImage();
+                DeleteObject(hBitmap);
             }
         }
     }

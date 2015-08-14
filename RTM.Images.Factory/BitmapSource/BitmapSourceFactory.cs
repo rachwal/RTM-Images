@@ -30,11 +30,12 @@ namespace RTM.Images.Factory
                 var stride = 4*((image.Width*bytesPerPixel + 3)/4);
                 var writeableBitmap = new WriteableBitmap(image.Width, image.Height, 96.0, 96.0, pixelFormat.Value, null);
                 writeableBitmap.WritePixels(new Int32Rect(0, 0, image.Width, image.Height), image.Pixels, stride, 0);
-                writeableBitmap.Freeze();
+                image.Pixels = new byte[1];
                 return writeableBitmap;
             }
             catch (Exception)
             {
+                image.Pixels = new byte[1];
                 return new BitmapImage();
             }
         }
