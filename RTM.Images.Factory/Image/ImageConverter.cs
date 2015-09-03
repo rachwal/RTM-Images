@@ -3,7 +3,7 @@
 // ImageConverter.cs
 // 
 // Created by Bartosz Rachwal. 
-// Copyright (c) 2015 The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved. 
+// Copyright (c) 2015 Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved. 
 
 using System;
 using System.Drawing;
@@ -20,9 +20,9 @@ namespace RTM.Images.Factory
     public class ImageConverter : IImageConverter
     {
         private readonly IBitmapFactory bitmapFactory = new BitmapFactory();
-        private readonly IPixelFormatConverter<PixelFormat> drawingConverter = new DrawingPixelFormatConverter();
 
         private readonly IBitmapSourceFactory bitmapSourceFactory = new BitmapSourceFactory();
+        private readonly IPixelFormatConverter<PixelFormat> drawingConverter = new DrawingPixelFormatConverter();
 
         private readonly IPixelFormatConverter<System.Windows.Media.PixelFormat?> mediaConverter =
             new MediaPixelFormatConverter();
@@ -37,6 +37,18 @@ namespace RTM.Images.Factory
             }
             var bitmapSource = bitmapSourceFactory.Create(preprocessed);
             return Convert(bitmapSource);
+        }
+
+        public BitmapSource ToBitmapSource(Image image)
+        {
+            var preprocessed = Preprocess(image);
+            var pixelFormat = mediaConverter.Convert(preprocessed.Format);
+            if (pixelFormat != null)
+            {
+                return bitmapSourceFactory.Create(preprocessed);
+            }
+            var bitmap = bitmapFactory.Create(preprocessed);
+            return Convert(bitmap);
         }
 
         private Bitmap Convert(BitmapSource bitmapSource)
@@ -55,18 +67,6 @@ namespace RTM.Images.Factory
             {
                 return new Bitmap(1, 1);
             }
-        }
-
-        public BitmapSource ToBitmapSource(Image image)
-        {
-            var preprocessed = Preprocess(image);
-            var pixelFormat = mediaConverter.Convert(preprocessed.Format);
-            if (pixelFormat != null)
-            {
-                return bitmapSourceFactory.Create(preprocessed);
-            }
-            var bitmap = bitmapFactory.Create(preprocessed);
-            return Convert(bitmap);
         }
 
         private Image Preprocess(Image image)
